@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import ReactModal from "react-modal";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [modalOpen, setModalOpen] = useState(false);
+  function handleAfterModalClose(): void {
+    setModalOpen(false);
+  }
+
+  function handleModalRequestClose(): void {
+    setModalOpen(false);
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header>
+        <h1>Task List</h1>
+        <button onClick={() => setModalOpen(true)}>Add Task</button>
+      </header>
+      <main>
+        <ReactModal
+          isOpen={modalOpen}
+          closeTimeoutMS={0}
+          contentLabel={"Add Task"}
+          shouldCloseOnOverlayClick={true}
+          shouldCloseOnEsc={true}
+          shouldReturnFocusAfterClose={true}
+          onAfterClose={handleAfterModalClose}
+          onRequestClose={handleModalRequestClose}
+        >
+          <p>This is a modal</p>
+        </ReactModal>
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
