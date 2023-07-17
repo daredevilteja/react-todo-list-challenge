@@ -1,0 +1,15 @@
+.outerContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 10vw;
+}
+
+.iconContainer .icon {
+  cursor: pointer;
+}
