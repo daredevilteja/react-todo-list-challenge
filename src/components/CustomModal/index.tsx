@@ -1,5 +1,6 @@
 import ReactModal from "react-modal";
 import { X } from "@phosphor-icons/react";
+import "./styles.css";
 
 interface Todo {
   task: string;
@@ -53,9 +54,9 @@ export default function CustomModal({
     >
       {modalType !== "Delete" ? (
         <div>
-          <div>
+          <div className="header">
             <h2>{modalType}</h2>
-            <X size={32} />
+            <X className="icon" size={32} onClick={() => setModalOpen(false)} />
           </div>
           <div>
             <p>Task</p>
