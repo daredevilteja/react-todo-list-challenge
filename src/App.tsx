@@ -46,7 +46,7 @@ function App() {
           setSavedTodo={setSavedTodo}
           deleteIdx={deleteIdx}
         />
-        <div>
+        <div className="cardContainer">
           {savedTodo.map((val, idx) => (
             <Card
               key={idx}

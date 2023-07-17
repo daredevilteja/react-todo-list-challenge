@@ -51,6 +51,7 @@ export default function CustomModal({
       shouldReturnFocusAfterClose={true}
       onAfterClose={handleAfterModalClose}
       onRequestClose={handleModalRequestClose}
+      ariaHideApp={false}
     >
       {modalType !== "Delete" ? (
         <div>
